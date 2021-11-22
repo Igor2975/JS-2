@@ -53,15 +53,14 @@
  
 
 }
-.goods-image{
-    width: 100%;
-}
+
 .goods-item {
     width: 180px;
     border: 2px solid #071b77;
     margin-top: 20px;
     background-color: #f8f8f8;
 }
+
 .goods-item-title {
     padding-top: 10px;
    text-align: center;
