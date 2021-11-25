@@ -4,18 +4,37 @@ const goods = [
     { title: 'Jacket', price: 350,img:src='images/jacket.jpg' },
     { title: 'Shoes', price: 250,img:src='images/shoes.jpg' },
   ];
-  
-  const renderGoodsItem = ({title = '', price = 0, img}) => `
-    <div class="goods-item">
-    <img class="goods-item-img" width ='180' height ='160' src=${img} alt="#" />
-    <h3 class="goods-item-title">${title}</h3>
-    <p class="goods-item-price">${price}</p>
-    <button class="goods-item-button" type="button">Добавить</button>
-    </div>
-  `
-  
-  const renderGoodsList = () => {
-    let goodsList = goods.map(item => renderGoodsItem(item));
-    document.querySelector('.goods-list').innerHTML = goodsList.join('');
+
+  class GoodsItem {
+    constructor(title, price,img){
+      this.title = title;
+      this.price = price;
+      this.img = img;
+    }
+    render(){
+    return `
+     <div class="goods-item">  
+     <img class="goods-item-img" width ='180' height ='160' src=${this.img} alt="#" />
+     <h3 class="goods-item-title">${this.title}</h3>
+     <p class="goods-item-price">${this.price}</p>
+     <button class="goods-item-button" type="button">Добавить</button>
+     </div>`;
+    }
   }
-  renderGoodsList();
+  
+ class GoodsList{
+   constructor(){
+     this.goods = goods;
+   }
+   render() {
+    let listHtml = '';
+    this.goods.forEach(good => {
+      const goodItem = new GoodsItem(good.title, good.price,good.img);
+      listHtml += goodItem.render();
+    });
+    document.querySelector('.goods-list').innerHTML = listHtml;
+  }
+}
+
+const list = new GoodsList();
+list.render()
