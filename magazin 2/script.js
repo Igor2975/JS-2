@@ -34,7 +34,15 @@ const goods = [
     });
     document.querySelector('.goods-list').innerHTML = listHtml;
   }
+  sumList(){
+    let sum = 0;
+    this.goods.forEach(good =>{
+      sum +=good.price
+    })
+    console.log(sum)
+  }
 }
 
 const list = new GoodsList();
 list.render()
+list.sumList()
