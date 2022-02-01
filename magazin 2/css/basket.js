@@ -1,9 +1,10 @@
-class Basket{
-    setVision(){}
-    render(){}
+class Basket {
+    setVision() {}
+    render() {}
 }
-class BasketItem{
-    render(){}
-    deleteItem(){}
-    setCount(){}
+class BasketItem {
+    render() {}
+    deleteItem() {}
+    setCount() {}
 }
+console.log(URL)
